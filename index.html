@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Albion Build Guide - ZvZ Reference</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            color: #f1f5f9;
+            /* Changed from fixed 100vh to allow natural scrolling */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .glass-effect {
+            background: rgba(30, 41, 59, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .prio-row {
+            background: rgba(245, 158, 11, 0.08) !important;
+        }
+
+        .prio-tag {
+            background: linear-gradient(90deg, #f59e0b 0%, #d97706 100%);
+        }
+
+        /* Improved Section Spacing */
+        .role-section {
+            margin-bottom: 32px;
+            border: 1px solid rgba(51, 65, 85, 1);
+            border-radius: 12px;
+            overflow: hidden;
+            background: rgba(30, 41, 59, 0.3);
+            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5);
+        }
+
+        .custom-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            /* Ensures columns have enough room to show full text */
+            min-width: 1100px; 
+        }
+        
+        .custom-table thead th {
+            background-color: #1e293b;
+            padding: 14px 16px;
+            color: #94a3b8;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .custom-table tr:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.01);
+        }
+
+        .custom-table tr:hover td {
+            background-color: rgba(59, 130, 246, 0.06);
+        }
+
+        .role-header {
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(15, 23, 42, 0.5);
+            border-bottom: 1px solid rgba(51, 65, 85, 1);
+        }
+
+        /* Custom Scrollbar for the page and horizontal tables */
+        ::-webkit-scrollbar { width: 10px; height: 10px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 10px; border: 2px solid #0f172a; }
+        ::-webkit-scrollbar-thumb:hover { background: #475569; }
+
+        .role-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        /* Smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="p-0 m-0">
+
+    <!-- Header -->
+    <header class="glass-effect py-4 px-6 shrink-0">
+        <div class="max-w-full mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-3">
+                <div class="bg-blue-600 p-2 rounded-lg shadow-lg">
+                    <i class="fas fa-shield-halved text-2xl text-white"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold tracking-tight leading-none">Albion ZvZ Comp</h1>
+                    <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-1">Official Build Rating / Prio</p>
+                </div>
+            </div>
+            
+            <!-- Quick Navigation -->
+            <nav class="flex gap-6">
+                <a href="#tanks" class="group flex items-center gap-2 text-blue-400 text-xs font-bold uppercase transition-all">
+                    <span class="w-2 h-2 bg-blue-500 rounded-full"></span> Tanks
+                </a>
+                <a href="#healers" class="group flex items-center gap-2 text-green-400 text-xs font-bold uppercase transition-all">
+                    <span class="w-2 h-2 bg-green-500 rounded-full"></span> Healers
+                </a>
+                <a href="#dps" class="group flex items-center gap-2 text-orange-400 text-xs font-bold uppercase transition-all">
+                    <span class="w-2 h-2 bg-orange-500 rounded-full"></span> DPS
+                </a>
+                <a href="#support" class="group flex items-center gap-2 text-yellow-400 text-xs font-bold uppercase transition-all">
+                    <span class="w-2 h-2 bg-yellow-500 rounded-full"></span> Support
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-grow p-4 md:p-8 max-w-[1600px] mx-auto w-full">
+        
+        <!-- TANKS SECTION -->
+        <section id="tanks" class="role-section">
+            <div class="role-header">
+                <div class="role-dot bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.5)]"></div>
+                <h2 class="text-blue-400 font-black uppercase tracking-widest text-sm">Tank Builds</h2>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="custom-table text-left text-xs">
+                    <thead>
+                        <tr>
+                            <th class="w-[15%]">Main Hand</th>
+                            <th class="w-[15%]">Off-Hand</th>
+                            <th class="w-[20%]">Head Gear</th>
+                            <th class="w-[15%]">Chest Gear</th>
+                            <th class="w-[15%]">Shoes / Boots</th>
+                            <th class="w-[20%]">Food / Buffs</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tankBody"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- HEALERS SECTION -->
+        <section id="healers" class="role-section">
+            <div class="role-header">
+                <div class="role-dot bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.5)]"></div>
+                <h2 class="text-green-400 font-black uppercase tracking-widest text-sm">Healer Builds</h2>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="custom-table text-left text-xs">
+                    <thead>
+                        <tr>
+                            <th class="w-[15%]">Main Hand</th>
+                            <th class="w-[15%]">Off-Hand</th>
+                            <th class="w-[20%]">Head Gear</th>
+                            <th class="w-[15%]">Chest Gear</th>
+                            <th class="w-[15%]">Shoes / Boots</th>
+                            <th class="w-[20%]">Food / Buffs</th>
+                        </tr>
+                    </thead>
+                    <tbody id="healerBody"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- DPS SECTION -->
+        <section id="dps" class="role-section">
+            <div class="role-header">
+                <div class="role-dot bg-orange-500 shadow-[0_0_8px_rgba(249,115,22,0.5)]"></div>
+                <h2 class="text-orange-400 font-black uppercase tracking-widest text-sm">DPS Builds</h2>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="custom-table text-left text-xs">
+                    <thead>
+                        <tr>
+                            <th class="w-[15%]">Main Hand</th>
+                            <th class="w-[15%]">Off-Hand</th>
+                            <th class="w-[20%]">Head Gear</th>
+                            <th class="w-[15%]">Chest Gear</th>
+                            <th class="w-[15%]">Shoes / Boots</th>
+                            <th class="w-[20%]">Food / Buffs</th>
+                        </tr>
+                    </thead>
+                    <tbody id="dpsBody"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- SUPPORT SECTION -->
+        <section id="support" class="role-section">
+            <div class="role-header">
+                <div class="role-dot bg-yellow-500 shadow-[0_0_8px_rgba(234,179,8,0.5)]"></div>
+                <h2 class="text-yellow-400 font-black uppercase tracking-widest text-sm">Support Builds</h2>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="custom-table text-left text-xs">
+                    <thead>
+                        <tr>
+                            <th class="w-[15%]">Main Hand</th>
+                            <th class="w-[15%]">Off-Hand</th>
+                            <th class="w-[20%]">Head Gear</th>
+                            <th class="w-[15%]">Chest Gear</th>
+                            <th class="w-[15%]">Shoes / Boots</th>
+                            <th class="w-[20%]">Food / Buffs</th>
+                        </tr>
+                    </thead>
+                    <tbody id="supportBody"></tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="py-8 text-center text-slate-500 text-[10px] uppercase tracking-widest">
+        End Of Build Reference
+    </footer>
+
+    <script>
+        const buildData = [
+            // TANK SECTION
+            { role: 'tank', prio: false, main: 'Heavy Mace', off: '-', head: 'Hellion Hood (Cleric Cowl Swap For Siege)', chest: 'Guardian Armor', feet: 'Royal Shoes / Boots Of Valor', food: 'Avalonian Pork Omelette' },
+            { role: 'tank', prio: false, main: '1H Hammer (Inertia Ring)', off: 'Leering Cane If Judi Helmet, Mistcaller Otherwise', head: 'Assassin Hood / Hellion Hood / Judi Helmet (Cleric Cowl Swap For Siege)', chest: 'Duskweaver / Knight / Guardian', feet: 'Royal Shoes / Boots Of Valor', food: 'Avalonian Pork Omelette If Mistcaller, Avalonian Beef Sandwich Otherwise' },
+            { role: 'tank', prio: false, main: 'Dreadstorm', off: 'Astral Aegis / Mistcaller', head: 'Hellion Hood (Cleric Cowl Swap For Siege)', chest: 'Knight / Guardian', feet: 'Royal Shoes / Boots Of Valor', food: 'Avalonian Pork Omelette' },
+            { role: 'tank', prio: false, main: 'Black Monk Staff', off: '-', head: 'Assassin Hood', chest: 'Knight / Guardian', feet: 'Royal Shoes / Boots Of Valor', food: 'Avalonian Pork Omelette' },
+            { role: 'tank', prio: false, main: 'Staff Of Balance', off: '-', head: 'Hellion Hood', chest: 'Guardian / Duskweaver', feet: 'Royal Shoes / Boots Of Valor / Feyscale Sandals (Usually Good Against Kite)', food: 'Avalonian Pork Omelette' },
+            { role: 'tank', prio: false, main: '1H Mace', off: 'Mistcaller', head: 'Hellion Hood', chest: 'Knight / Guardian', feet: 'Royal Shoes', food: 'Avalonian Pork Omelette' },
+            { role: 'tank', prio: false, main: 'Icicle', off: '-', head: 'Assassin Hood', chest: 'Knight / Duskweaver', feet: 'Royal Shoes / Boots Of Valor / Feyscale Sandals (Usually Good Against Kite)', food: 'Avalonian Pork Omelette' },
+            
+            // HEALER SECTION
+            { role: 'healer', prio: true, main: 'Hallowfall (3rd Q Holy Beam + Last Passive)', off: 'Blueflame Torch', head: 'Cleric Cowl / Leather Hood On Cleanse / Guardian Helmet', chest: 'Judicator Armor / Royal Armor (Play 3rd Passive For CC Resist)', feet: 'Royal Shoes / Mercenary Shoes', food: 'Avalonian Pork Omelette' },
+            { role: 'healer', prio: true, main: '1H Nature (1st Q + Breeze)', off: 'Blueflame Torch', head: 'Cleric Cowl / Leather Hood On Cleanse / Guardian Helmet', chest: 'Judicator Armor / Royal Armor (Play 3rd Passive For CC Resist)', feet: 'Royal Shoes / Mercenary Shoes', food: 'Avalonian Pork Omelette' },
+            { role: 'healer', prio: false, main: 'Exalted (Ask Caller)', off: '-', head: 'Cleric Cowl / Leather Hood On Cleanse', chest: 'Judicator Armor / Royal Armor (Play 3rd Passive For CC Resist)', feet: 'Royal Shoes / Mercenary Shoes', food: 'Avalonian Pork Omelette' },
+            { role: 'healer', prio: false, main: 'Fallen (Ask Caller)', off: '-', head: 'Cleric Cowl / Leather Hood On Cleanse', chest: 'Judicator Armor / Royal Armor (Play 3rd Passive For CC Resist)', feet: 'Royal Shoes / Mercenary Shoes', food: 'Avalonian Pork Omelette' },
+
+            // DPS SECTION
+            { role: 'dps', prio: true, main: 'Galatine Pair ( Blade Cyclone on W, Iron Will if enemy has many purges )', off: '-', head: 'Assassin Hood / Cleric Cowl (For Siege)', chest: 'Soldier Armor', feet: 'Stalker Shoes / Royal Shoes / Boots Of Valor', food: 'Beef Stew' },
+            { role: 'dps', prio: true, main: 'Ursine Maulers', off: '-', head: 'Cleric Cowl / Leather Hood On Cleanse', chest: 'Hellion Jacket', feet: 'Stalker Shoes / Royal Shoes / Boots Of Valor', food: 'Beef Stew' },
+            { role: 'dps', prio: true, main: 'Forge Hammers ( 1st Q + Dash W )', off: '-', head: 'Assassin Hood / Cleric Cowl (For Siege)', chest: 'Soldier Armor', feet: 'Stalker Shoes / Royal Shoes / Boots Of Valor', food: 'Beef Stew' },
+            { role: 'dps', prio: false, main: 'Halberd ( 2nd Q + Internal Bleeding )', off: '-', head: 'Assassin Hood / Cleric Cowl (For Siege)', chest: 'Soldier Armor / Hellion Jacket', feet: 'Stalker Shoes / Royal Shoes / Boots Of Valor', food: 'Beef Stew' },
+            { role: 'dps', prio: false, main: 'Dawnsong (Ask Caller)', off: '-', head: 'Assassin Hood / Cleric Cowl (For Siege)', chest: 'Hellion Jacket', feet: 'Stalker Shoes / Royal Shoes / Boots Of Valor', food: 'Beef Stew' },
+            { role: 'dps', prio: true, main: 'Lightcaller (Ask Caller)', off: '-', head: 'Assassin Hood / Feyscale Hat', chest: 'Soldier Armor', feet: 'Stalker Shoes / Royal Shoes / Boots Of Valor', food: 'Beef Stew' },
+            { role: 'dps', prio: false, main: 'Raven Strike', off: '-', head: 'Assassin Hood / Cleric Cowl (For Siege)', chest: 'Soldier Armor', feet: 'Stalker Shoes / Royal Shoes / Boots Of Valor', food: 'Beef Stew' },
+            { role: 'dps', prio: false, main: 'Carrioncaller ( 2nd Q + Internal Bleeding ) (Ask Caller)', off: '-', head: 'Assassin Hood / Cleric Cowl (For Siege)', chest: 'Hellion Jacket', feet: 'Stalker Shoes / Royal Shoes / Boots Of Valor', food: 'Beef Stew' },
+            { role: 'dps', prio: false, main: 'Demon Fang (Ask Caller)', off: '-', head: 'Assassin Hood / Cleric Cowl (For Siege)', chest: 'Hellion Jacket', feet: 'Stalker Shoes / Royal Shoes / Boots Of Valor', food: 'Beef Stew' },
+
+            // SUPPORT SECTION
+            { role: 'support', prio: false, main: 'Oathkeepers (1st Q + Guard Rune)', off: '-', head: 'Assassin Hood', chest: 'Demon / Judicator Armor', feet: 'Guardian Boots If Demon Otherwise Royal / Boots Of Valor', food: 'Avalonian Pork Omelette' },
+            { role: 'support', prio: false, main: 'Rootbound ( Shield Q + Pull W )', off: '-', head: 'Assassin Hood', chest: 'Judicator Armor', feet: 'Stalker Shoes / Royal Shoes / Mercenary Shoes', food: 'Avalonian Pork Omelette' },
+            { role: 'support', prio: false, main: 'Evansong ( Shield Q + Cleanse W )', off: '-', head: 'Assassin Hood', chest: 'Royal Armor / Guardian Armor', feet: 'Stalker Shoes / Royal Shoes / Mercenary Shoes', food: 'Avalonian Pork Omelette' },
+            { role: 'support', prio: false, main: 'Damnation (Play Morgana Cape)', off: '-', head: 'Assassin Hood', chest: 'Royal Armor', feet: 'Stalker Shoes / Royal Shoes / Mercenary Shoes', food: 'Avalonian Pork Omelette' },
+            { role: 'support', prio: false, main: 'Locus (Ask Caller)', off: '-', head: 'Assassin Hood', chest: 'Judicator Armor', feet: 'Stalker Shoes / Royal Shoes / Mercenary Shoes', food: 'Avalonian Pork Omelette' }
+        ];
+
+        function createRow(build) {
+            const tr = document.createElement('tr');
+            tr.className = `border-b border-slate-800/60 ${build.prio ? 'prio-row' : ''}`;
+            
+            tr.innerHTML = `
+                <td class="px-4 py-4">
+                    <div class="flex items-center gap-2">
+                        <span class="text-white font-bold text-sm leading-tight">${build.main}</span>
+                        ${build.prio ? '<span class="prio-tag text-[9px] px-1.5 py-0.5 rounded text-white font-black shrink-0">PRIO</span>' : ''}
+                    </div>
+                </td>
+                <td class="px-4 py-4">
+                    <span class="${build.off !== '-' ? 'text-cyan-400 font-semibold' : 'text-slate-500'} text-xs">${build.off}</span>
+                </td>
+                <td class="px-4 py-4 text-slate-300 text-xs border-x border-slate-800/30">${build.head}</td>
+                <td class="px-4 py-4 text-slate-300 text-xs border-r border-slate-800/30">${build.chest}</td>
+                <td class="px-4 py-4 text-slate-300 text-xs border-r border-slate-800/30">${build.feet}</td>
+                <td class="px-4 py-4 text-amber-500/90 text-xs font-medium italic">${build.food}</td>
+            `;
+            return tr;
+        }
+
+        function renderTables() {
+            const sections = {
+                tank: document.getElementById('tankBody'),
+                healer: document.getElementById('healerBody'),
+                dps: document.getElementById('dpsBody'),
+                support: document.getElementById('supportBody')
+            };
+
+            Object.values(sections).forEach(el => el.innerHTML = '');
+
+            buildData.forEach(build => {
+                const target = sections[build.role];
+                if (target) {
+                    target.appendChild(createRow(build));
+                }
+            });
+        }
+
+        renderTables();
+    </script>
+</body>
+</html>
